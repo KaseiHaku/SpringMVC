@@ -1,0 +1,28 @@
+SpringMVC 执行过程
+第一步：发起请求到 DispatcherServlet
+第二步：DispatcherServlet 请求 HandlerMapping 根据 xml配置或注解查找 Handler 
+第三步： HandlerMapping 向 DispatcherServlet 返回 Handler
+第四步：DispatcherServlet 调用 HandlerAdapter 去执行 Handler
+第五步：HandlerAdapter 去执行 Handler
+第六步：Handler 给 HandlerAdapter 返回一个 ModelAndView
+第七步：HandlerAdapter 向 DispatcherServlet 返回 ModelAndView（是 springmvc 框架的一个底层对象）
+第八步：DispatcherServlet 请求 View Resolver 解析（根据逻辑视图名解析成真正的视图jsp）
+第九步：View Resolver 向 DispatcherServlet 返回view
+第十步：DispatcherServlet 进行视图渲染（视图渲染就是将 ModelAndView 数据填充到 request 域）
+第十一步：DispatcherServlet 向用户响应结果
+
+
+SpringMVC 的主要知识点：{
+	1 jar 包的导入
+	2 web.xml 的配置
+	3 springmvc-servlet.xml 的配置
+	4 xml 模式开发
+	5 anno 模式开发
+	6  参数绑定（自定义转换器）  ------------ 学到这里
+	7 validation 校验
+	8  异常
+	9 文件上传
+	9 json 交互
+	10 RESTful 支持
+	11 拦截器
+}
