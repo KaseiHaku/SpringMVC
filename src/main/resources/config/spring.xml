@@ -6,7 +6,7 @@
 		    http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- spring mvc 配置扫包：多个包用 , 号分隔，包含子包用 base.* -->
-    <context:component-scan base-package="kasei.springboot.rootcontext.*" use-default-filters="false">
+    <context:component-scan base-package="kasei.web.rootcontext.*" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
