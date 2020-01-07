@@ -1,18 +1,21 @@
 plugins {
     id 'java'
     id 'idea'
+    id 'war'
     id 'org.springframework.boot' version '2.2.2.RELEASE'
     id 'io.spring.dependency-management' version "1.0.8.RELEASE"
+    id "com.bmuschko.tomcat" version "2.5"
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
     maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
     mavenCentral()
     jcenter()
-
 }
+// 解决Gradle编译时出现： 编码GBK的不可映射字符
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 dependencies {
     /** todo Gradle 支持的依赖方式
@@ -23,32 +26,13 @@ dependencies {
      * testImplementation — test equivalent of implementation
      * testRuntimeOnly — test equivalent of runtimeOnly
      * */
-
-    /** TODO Convenient Develop */
-    // 自动生成 getter setter，而不用写在代码里，需要 IDEA 安装 lombok 插件，并修改 "Settings > Build > Compiler > Annotation Processors" 为 Enable
-    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-devtools'         // 开发工具，实现 spring boot 项目热部署
+    
 
     /** TODO Test */
-    testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher'
-    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test'
-    testImplementation group: 'org.springframework', name: 'spring-mock', version: '2.0.8'
-
-
-    /** TODO Config */
-    // spring boot 默认只能注入 yml 里面的配置，引入这个可以注入 .xml 或 .properties 文件的配置，例如：@PropertySource("classpath:your.properties")
-    implementation group: 'org.springframework.boot', name: 'spring-boot-configuration-processor'
-
-
-    /** TODO Logging */
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2'
-    testImplementation group: 'org.slf4j', name: 'slf4j-log4j12'
-
+    
 
     /** TODO Web */
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-json'
 
 
 

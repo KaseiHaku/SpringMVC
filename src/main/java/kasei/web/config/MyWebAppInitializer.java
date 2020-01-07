@@ -31,7 +31,7 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] { "/mvc/**" };
+        return new String[] { "/mvc/*" };  // 这里 url 不能使用例如 "/*", "/mvc/*" 等 * 号结尾的模式，会导致 view 路径解析失败，因为会重新跳转到 MVC 的 DispatcherServlet
     }
 
     /** TODO 配置过滤器 */

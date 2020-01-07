@@ -1,3 +1,18 @@
+高版本 Servlet 容器可以使用代码进行 MVC 配置的原因 {
+    1. Servlet 容器启动时，会扫描 classpath 中的所有 jar 包
+    2. 寻找 jar 包中的 META-INF/services/javax.servlet.ServletContainerInitializer 文件
+    3. 该文件中包含了 javax.servlet.ServletContainerInitializer 接口实现类的全类名
+    4. Servlet 容器启动时，会根据这些全类名去调用这些实现类的 onStartup 方法，实现启动时配置
+    5. @HandlesTypes 注解可以将 classpath 下的所有指定类型的类，作为参数传递到 ServletContainerInitializer#onStartup 中
+
+    可以在 spring-web-5.2.2.RELEASE.jar 包中，找到以上信息。
+
+    如果项目启动成功，但是仍然报 404 或 MVC 并没有启动，那说明部署的 artifact (war 包) 没有包含项目中引入的第三方 jar 包
+}
+
+
+
+
 Mvc IOC Container Hierarchy:
     RootApplicationContext <- WebApplicationContext
 
