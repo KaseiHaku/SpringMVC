@@ -1,0 +1,69 @@
+Mvc IOC Container Hierarchy:
+    RootApplicationContext <- WebApplicationContext
+
+Special Bean Types:
+    HandlerMapping：
+        映射 Request 到 Handler，并包含一系列 Interceptor，
+        映射规则根据实现类的不同而不同，
+        主要实现类有
+            RequestMappingHandlerMapping 映射 @RequestMapping 标记的路径
+            SimpleUrlHandlerMapping 映射显式明确注册的 URI 模式
+
+    HandlerAdapter：
+        使 DispatcherServlet 调用 Handler 时，不必在乎具体实现
+
+    HandlerExceptionResolver：
+        异常处理策略
+
+    ViewResolver：
+        机械 Handler 返回的视图映射字符串，并生成 Response 返回
+
+    LocaleResolver, LocaleContextResolver:
+        根据 Timezone 提供不同的视图
+
+    ThemeResolver：
+        主题配置，个性化定制
+
+    MultipartResolver：
+        文件上传解析
+
+    FlashMapManager：
+        将请求转发到另一个请求上
+
+MVC Config：
+    DispatcherServlet 会检查 WebApplicationContext 中所有上述特殊类型的 Bean，如果没有则默认使用 DispatcherServlet.properties 指定的
+    一般使用 MvcConfig 默认配置就是最好的配置
+
+Processing:
+    1. 找到对应的 WebApplicationContext
+    2.
+
+
+SpringMVC 执行过程
+第一步：发起请求到 DispatcherServlet
+第二步：DispatcherServlet 请求 HandlerMapping 根据 xml配置或注解查找 Handler 
+第三步： HandlerMapping 向 DispatcherServlet 返回 Handler
+第四步：DispatcherServlet 调用 HandlerAdapter 去执行 Handler
+第五步：HandlerAdapter 去执行 Handler
+第六步：Handler 给 HandlerAdapter 返回一个 ModelAndView
+第七步：HandlerAdapter 向 DispatcherServlet 返回 ModelAndView（是 springmvc 框架的一个底层对象）
+第八步：DispatcherServlet 请求 View Resolver 解析（根据逻辑视图名解析成真正的视图jsp）
+第九步：View Resolver 向 DispatcherServlet 返回view
+第十步：DispatcherServlet 进行视图渲染（视图渲染就是将 ModelAndView 数据填充到 request 域）
+第十一步：DispatcherServlet 向用户响应结果
+
+
+SpringMVC 的主要知识点：{
+	1 jar 包的导入
+	2 web.xml 的配置
+	3 springmvc-servlet.xml 的配置
+	4 xml 模式开发
+	5 anno 模式开发
+	6  参数绑定（自定义转换器）  ------------ 学到这里
+	7 validation 校验
+	8  异常
+	9 文件上传
+	9 json 交互
+	10 RESTful 支持
+	11 拦截器
+}

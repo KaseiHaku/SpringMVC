@@ -7,6 +7,7 @@ import javax.servlet.Filter;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
 
+/** TODO 使用 SPI 实现自动装配 */
 public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 
@@ -30,7 +31,7 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] { "/mvc/*" };
+        return new String[] { "/mvc/**" };
     }
 
     /** TODO 配置过滤器 */
