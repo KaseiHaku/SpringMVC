@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h4>静态属性绑定2</h4>
+    <div id="staticPropsBind">
+        {{ staticProp }}
+    </div>
+</div>
+
+<script src="../frame/vue-2.6.11/vue.min.js"></script>
+<script>
+
+    let obj = {
+        staticProp: '234'
+    };
+
+
+    let staticPropsBind = new Vue({
+        el: '#staticPropsBind',
+        data: obj
+    });
+
+
+</script>
+</body>
+</html>
