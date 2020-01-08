@@ -17,9 +17,16 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**")
+        registry
+            /**
+             * 1. 假设项目部署路径为                             /SpringWeb
+             * 2. 且 DispatcherServlet 映射的路径配置为          /mvc/*
+             * 3. 且静态资源访问路径配置为                        /resources/**
+             * 那么实际静态资源访问 URL 应该为                    https://localhost:8080/SpringWeb/mvc/resources/
+             * */
+            .addResourceHandler("/resources/**")
             .addResourceLocations("/public", "classpath:/static/")
-            .setCachePeriod(31556926);
+            .setCachePeriod(31556926); // 配置浏览器对静态资源最大的缓存时间
     }
 
     @Override
