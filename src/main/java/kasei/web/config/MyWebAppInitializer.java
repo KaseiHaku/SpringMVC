@@ -7,7 +7,17 @@ import javax.servlet.Filter;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
 
-/** TODO 使用 SPI 实现自动装配 */
+/** TODO 使用 SPI 实现自动装配
+ * 该类主要用于 Servlet 容器配置，例如 DispatcherServlet
+ *
+ * DispatcherServlet initialization parameters
+ *      contextClass: 用于 WebApplicationContext 实例的类，例如 XmlWebApplicationContext
+ *      contextConfigLocation: 创建 WebApplicationContext 实例用到的配置文件的位置，例如： spring-mvc.xml
+ *      namespace: 跟 contextConfigLocation 的作用一样，也是用于找配置文件，但是该属性指定的 path 会以 WEB-INF/ 为根目录，默认为 [servlet-name]-servlet 即找 WEB-INF/[servlet-name]-servlet.xml
+ *      throwExceptionIfNoHandlerFound: 当 request 没有找到对应的 handler 时，是否抛出 NoHandlerFoundException
+ *                                      默认 false，这种情况下 DispatcherServlet 会设置返回头为 404 而不是抛出 NoHandlerFoundException 异常
+ *                                      注意：如果同时配置了 默认的处理 servlet，那么没有 handler 的 request 都会发到 DefaultServlet 上，就不会返回 404 了
+ * */
 public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 
@@ -45,9 +55,18 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
         /** TODO 文件上传限制配置 */
         // Optionally also set maxFileSize, maxRequestSize, fileSizeThreshold
-        registration.setMultipartConfig(new MultipartConfigElement("/tmp"));
+        registration.setMultipartConfig(
+            new MultipartConfigElement(
+                "/tmp",             // location 上传文件保存路径
+                1024*1024*10,       // maxFileSize 最大允许上传 n 个字节的文件
+                2,              // maxRequestSize 最多一次允许上传 n 个文件
+                1024*100        // fileSizeThreshold 超过 n 个字节的文件，需要生成临时文件，注意临时文件回自动删除
+            )
+        );
         /** TODO 日志中显示登陆参数 */
         registration.setInitParameter("enableLoggingRequestDetails", "true");
     }
+
+
 
 }

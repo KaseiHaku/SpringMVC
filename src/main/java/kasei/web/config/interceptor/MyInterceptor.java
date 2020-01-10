@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@Component
 public class MyInterceptor implements HandlerInterceptor{
 
 	//在进入 Handler 方法之前执行
