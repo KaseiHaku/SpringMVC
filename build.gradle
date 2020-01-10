@@ -1,21 +1,43 @@
 plugins {
+
+    id 'base'
     id 'java'
-    id 'idea'
+    id 'application'
     id 'war'
     id 'org.springframework.boot' version '2.2.2.RELEASE'
     id 'io.spring.dependency-management' version "1.0.8.RELEASE"
-    id "com.bmuschko.tomcat" version "2.5"
+    id 'org.gretty' version '3.0.1'
+    id 'idea'
+    
+
 }
 
 sourceCompatibility = JavaVersion.VERSION_11
+
+/** TODO 插件 io.spring.dependency-management 的 DSL
+ * 依赖管理配置：可以让 dependencies {} 中省略版本号 
+ * */
+// dependencyManagement {
+//     imports {
+//         mavenBom 'io.spring.platform:platform-bom:Cairo-SR8'  // 不能使用 group, name, version 的形式
+//     }
+// }
+
+
+war {
+    webXml = new File('src/main/webapp/WEB-INF/web.xml')
+}
+
 
 repositories {
     maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
     mavenCentral()
     jcenter()
 }
+
 // 解决Gradle编译时出现： 编码GBK的不可映射字符
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
 
 dependencies {
     /** todo Gradle 支持的依赖方式
@@ -29,11 +51,25 @@ dependencies {
     
 
     /** TODO Test */
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter' 
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher' 
     
 
     /** TODO Web */
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
-
-
-
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux'
 }
+
+/** TODO 插件 org.gretty 的 DSL ********************************************************************/
+
+gretty {
+    // 官方文档 https://gretty-gradle-plugin.github.io/gretty-doc/
+    httpPort  = 8080        // 端口默认8080
+    contextPath = '/SpringWeb'    // contextPath 设置根路径，默认为项目名称
+
+    servletContainer = 'jetty9.4'
+    jetty94Version = '9.4.25.v20191220'
+}
+
+
