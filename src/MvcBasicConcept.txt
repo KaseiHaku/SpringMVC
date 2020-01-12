@@ -45,6 +45,9 @@ Special Bean Types:
     FlashMapManager：
         将请求转发到另一个请求上
 
+1. DispatcherServlet 检查 WebApplicationContext 中所有上述的特殊类型的 bean
+    2. 如果没有找到，那么会使用 spring-webmvc-5.2.2.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.properties 中配置的类作为默认选项
+
 Processing:
     1 browser 发送 request 到 servlet 容器
     2 servlet 容器将请求封装成 HttpServletRequest，并根据 request url 将 request 交给匹配的 servlet 处理，例如 DispatcherServlet（可以有多个）
@@ -63,8 +66,30 @@ Processing:
         7.2 如果找不到
 
 
-    1. DispatcherServlet 检查 WebApplicationContext 中所有上述的特殊类型的 bean
-    2. 如果没有找到，那么会使用 spring-webmvc-5.2.2.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.properties 中配置的类作为默认选项
+
+Interception
+    所有 HandlerMapping 都支持 Handler 的 Intercept,
+    所有 Interceptor 必须实现 HandlerInterceptor 接口
+    注意： postHandle 对  @ResponseBody and ResponseEntity 没用，因为这两个类型的 response 在 HandlerAdapter 中就完成了，
+          这种情况可以通过实现 ResponseBodyAdvice 或者 声明为  Controller Advice bean 或者 直接配置到 RequestMappingHandlerAdapter 中
+
+Exceptions
+
+View
+
+
+Locale
+
+Themes
+
+Multipart
+
+Logging
+
+Cross-Origin Resource Sharing (CORS) :
+
+
+
 
 MVC Config：
     DispatcherServlet 会检查 WebApplicationContext 中所有上述特殊类型的 Bean，如果没有则默认使用 DispatcherServlet.properties 指定的

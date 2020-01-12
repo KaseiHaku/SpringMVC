@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 @RestController
-@RequestMapping("/ServletContext")
-public class ServletContext {
+@RequestMapping("/ApplicationContext")
+public class ApplicationContext {
 
     @GetMapping
     public List<Map<String, Object>> getServletContextInfo(HttpServletRequest request){
@@ -33,4 +33,16 @@ public class ServletContext {
         filters.sort(Comparator.comparing(item -> (String)item.get("filterName"), Comparator.comparing(String::toString)));
         return filters;
     }
+
+
+    @GetMapping("/mvcApplicationContext")
+    public void mvcApplicationContext(){
+
+    }
+
+    @GetMapping("/springApplicationContext")
+    public void springApplicationContext(){
+
+    }
+
 }
