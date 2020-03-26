@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0"
+         metadata-complete="false">
+    <!--
+    web.xml 方式配置 Spring 和 Spring MVC 已经过时，
+    现在都采用 SPI 方式配置，具体使用参考
+    spring-web-5.0.13.RELEASE.jar!/META-INF/services/javax.servlet.ServletContainerInitializer
+    文件中声明的 SPI 实现类 org.springframework.web.SpringServletContainerInitializer
+    该实现类中会查找 classpath 下所有 WebApplicationInitializer 接口的实现类，
+    并调用每个 WebApplicationInitializer 实现类的 onStartup() 方法完成 Servlet Filter Listener 等类的配置
+    -->
 </web-app>

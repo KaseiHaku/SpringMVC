@@ -18,59 +18,64 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-web:2.2.2.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter:2.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-webflux:2.2.2.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-json:2.2.2.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-validation:2.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter:2.2.2.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:5.2.2.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot:2.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-webflux:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-web:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-reactor-netty:2.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.synchronoss.cloud:nio-multipart-parser:1.1.0" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-autoconfigure:2.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot:2.2.2.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-logging:2.2.2.RELEASE" />
           <element id="library" level="project" name="Gradle: jakarta.annotation:jakarta.annotation-api:1.3.5" />
-          <element id="library" level="project" name="Gradle: org.yaml:snakeyaml:1.25" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-web:5.2.2.RELEASE" />
-          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.10.1" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-context:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-aop:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-beans:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-expression:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-core:5.2.2.RELEASE" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.1" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.1" />
+          <element id="library" level="project" name="Gradle: org.yaml:snakeyaml:1.25" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.module:jackson-module-parameter-names:2.10.1" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.10.1" />
           <element id="library" level="project" name="Gradle: jakarta.validation:jakarta.validation-api:2.0.1" />
           <element id="library" level="project" name="Gradle: org.hibernate.validator:hibernate-validator:6.0.18.Final" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-core:5.2.2.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-context:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: io.projectreactor.netty:reactor-netty:0.9.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.glassfish:jakarta.el:3.0.3" />
+          <element id="library" level="project" name="Gradle: io.projectreactor:reactor-core:3.3.1.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.synchronoss.cloud:nio-stream-storage:1.1.3" />
           <element id="library" level="project" name="Gradle: ch.qos.logback:logback-classic:1.2.3" />
           <element id="library" level="project" name="Gradle: org.apache.logging.log4j:log4j-to-slf4j:2.12.1" />
           <element id="library" level="project" name="Gradle: org.slf4j:jul-to-slf4j:1.7.29" />
+          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.29" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-jcl:5.2.2.RELEASE" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.10.1" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.10.1" />
           <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging:3.4.1.Final" />
           <element id="library" level="project" name="Gradle: com.fasterxml:classmate:1.5.1" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-jcl:5.2.2.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-aop:5.2.2.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-expression:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: io.netty:netty-codec-http2:4.1.43.Final" />
+          <element id="library" level="project" name="Gradle: io.netty:netty-handler-proxy:4.1.43.Final" />
+          <element id="library" level="project" name="Gradle: io.netty:netty-codec-http:4.1.43.Final" />
+          <element id="library" level="project" name="Gradle: io.netty:netty-handler:4.1.43.Final" />
+          <element id="library" level="project" name="Gradle: io.netty:netty-transport-native-epoll:linux-x86_64:4.1.43.Final" />
+          <element id="library" level="project" name="Gradle: org.reactivestreams:reactive-streams:1.0.3" />
           <element id="library" level="project" name="Gradle: ch.qos.logback:logback-core:1.2.3" />
-          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.29" />
           <element id="library" level="project" name="Gradle: org.apache.logging.log4j:log4j-api:2.12.1" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-beans:5.2.2.RELEASE" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-webflux/2.2.2.RELEASE/939c685bb89b8322524b7c954057d340c20d6432/spring-boot-starter-webflux-2.2.2.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/org.springframework/spring-webflux/5.2.2.RELEASE/610c4889b4e5087e2103fcfae32144af0321d06d/spring-webflux-5.2.2.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-reactor-netty/2.2.2.RELEASE/bb597a0b310b8a464f555dd18e80e6b40e165b94/spring-boot-starter-reactor-netty-2.2.2.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/org.synchronoss.cloud/nio-multipart-parser/1.1.0/c6c417fec6612584b1c34d4dd98c5a4e47e8c754/nio-multipart-parser-1.1.0.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/io.projectreactor.netty/reactor-netty/0.9.2.RELEASE/266a3b6c10dec69a5165420d85be43c52a110e9a/reactor-netty-0.9.2.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/org.glassfish/jakarta.el/3.0.3/dab46ee1ee23f7197c13d7c40fce14817c9017df/jakarta.el-3.0.3.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/io.projectreactor/reactor-core/3.3.1.RELEASE/91c88b7f1760610f61c6254aedd29784e09c4a47/reactor-core-3.3.1.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/org.synchronoss.cloud/nio-stream-storage/1.1.3/986dba5f6e5eed20f0dba6ddc8e8a64a9ebdc2f3/nio-stream-storage-1.1.3.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/io.netty/netty-codec-http2/4.1.43.Final/d859a766119d7845e4d10e64a1f846d3d26d5ff2/netty-codec-http2-4.1.43.Final.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/io.netty/netty-handler-proxy/4.1.43.Final/7ac025d4e0368487d08d01c35eb7f89cbc25464e/netty-handler-proxy-4.1.43.Final.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/io.netty/netty-codec-http/4.1.43.Final/7320f9db621dc51b79807a4e5094665f260432c/netty-codec-http-4.1.43.Final.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.43.Final/f83ac0492d44057d07ec6d40cf79e8e2de949836/netty-handler-4.1.43.Final.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.43.Final/ab3836b204a1526bd8fc51efcf34d5ee77b58e28/netty-transport-native-epoll-4.1.43.Final-linux-x86_64.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.3/d9fb7a7926ffa635b3dcaa5049fb2bfa25b3e7d0/reactive-streams-1.0.3.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/io.netty/netty-codec-socks/4.1.43.Final/a8358a537bbc778e5dfb17dddf5f2bdb6bdbc06c/netty-codec-socks-4.1.43.Final.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.43.Final/44731a5739c40a8434c43e1303e9196f23da67fa/netty-codec-4.1.43.Final.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/io.netty/netty-transport-native-unix-common/4.1.43.Final/e9b1a4ff3824d29c8bc69287ba83a848057d757e/netty-transport-native-unix-common-4.1.43.Final.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/io.netty/netty-transport/4.1.43.Final/781cd7cfc1118bdfe1538f39cc1f4d07d6254094/netty-transport-4.1.43.Final.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.43.Final/c0d142260a32709523e3bcf0d015b193f2ff2df4/netty-buffer-4.1.43.Final.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.43.Final/94ae5a7e595fdc29dac254014e3159d3572d7e44/netty-resolver-4.1.43.Final.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/io.netty/netty-common/4.1.43.Final/ccb6f627ded1bb2671a66a84506174d240c7bec8/netty-common-4.1.43.Final.jar" />
+          <element id="library" level="project" name="Gradle: io.netty:netty-codec-socks:4.1.43.Final" />
+          <element id="library" level="project" name="Gradle: io.netty:netty-codec:4.1.43.Final" />
+          <element id="library" level="project" name="Gradle: io.netty:netty-transport-native-unix-common:4.1.43.Final" />
+          <element id="library" level="project" name="Gradle: io.netty:netty-transport:4.1.43.Final" />
+          <element id="library" level="project" name="Gradle: io.netty:netty-buffer:4.1.43.Final" />
+          <element id="library" level="project" name="Gradle: io.netty:netty-resolver:4.1.43.Final" />
+          <element id="library" level="project" name="Gradle: io.netty:netty-common:4.1.43.Final" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/4.4.1/d2e71a032b1927539c07adc3a9f36336d6fbf4b9/okhttp-4.4.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/com.squareup.okio/okio/2.4.3/d946f785445d73c6bc99bbd778576d2576e37ea9/okio-jvm-2.4.3.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.61/4702105e97f7396ae41b113fdbdc180ec1eb1e36/kotlin-stdlib-1.3.61.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.61/65abb71d5afb850b68be03987b08e2c864ca3110/kotlin-stdlib-common-1.3.61.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../Gradle/LocalRepository/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" />
         </element>
       </element>
     </root>

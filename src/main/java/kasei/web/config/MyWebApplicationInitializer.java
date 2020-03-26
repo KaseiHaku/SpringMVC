@@ -18,7 +18,7 @@ import javax.servlet.ServletRegistration;
  *                                      默认 false，这种情况下 DispatcherServlet 会设置返回头为 404 而不是抛出 NoHandlerFoundException 异常
  *                                      注意：如果同时配置了 默认的处理 servlet，那么没有 handler 的 request 都会发到 DefaultServlet 上，就不会返回 404 了
  * */
-public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class MyWebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 
     /** TODO RootConfigClasses 用于配置 Spring 使用到的 App IOC 容器的配置类
