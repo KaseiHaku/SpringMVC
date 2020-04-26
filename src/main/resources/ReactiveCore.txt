@@ -1,0 +1,17 @@
+传统的 spring mvc 使用的是 blocking I/O，即客户端每来一个请求，分配一个 thread 处理
+spring webflux 使用的是 unblocking I/O，即多个客户端请求，只分配一个 thread 进行处理，底层采用的是 事件循环 的方式处理请求，类似于 chrome 处理 js 事件
+
+主要类：
+    HttpHandler: 用于屏蔽各个容器之间的差异，比如 tomcat jetty netty 等
+    HttpHandlerBuilder: 建造者模式，创建 HttpHandler 实例
+
+
+将以下 Bean 放入到 Spring ApplicationContext 中，就能直接注册使用
+    WebExceptionHandler: 处理异常，包括 WebFilter 中的异常
+    WebFilter: 过滤器
+    WebHandler: 处理 客户端请求 的类
+    ServerWebExchange:
+        WebSessionManager: WebSession 实例的管理器，默认使用 DefaultWebSessionManager
+        ServerCodecConfigurer: 访问 HttpMessageReader 实例，默认使用 ServerCodecConfigurer.create();
+        LocaleContextResolver: 解析 LocaleContext 实例，默认使用 AcceptHeaderLocaleContextResolver
+    ForwardedHeaderTransformer: 请求转发时对 http 头进行处理
