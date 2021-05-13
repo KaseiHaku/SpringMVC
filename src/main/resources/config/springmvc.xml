@@ -7,13 +7,13 @@
 		    http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!-- spring mvc 配置扫包：多个包用 , 号分隔，包含子包用 base.* -->
-    <context:component-scan base-package="kasei.web.mvc.*" use-default-filters="false">
+    <context:component-scan base-package="kasei.springmvc.*" use-default-filters="false">
         <!-- 只包含 Controller 注解注释的类，需要设置 context:component-scan 属性 use-default-filters="false" -->
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
 
         <!-- 不包含 assigned 指定的类 -->
-        <context:exclude-filter type="assignable" expression="kasei.web.mvc.controller.ExternalController"/>
+        <context:exclude-filter type="assignable" expression="kasei.springmvc.controller.ExternalController"/>
 
         <!-- 不包含以下注解注释的类 -->
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
@@ -58,11 +58,11 @@
         <!--多个拦截器,顺序执行 -->
         <mvc:interceptor>
             <mvc:mapping path="/**" /><!-- 表示拦截所有的url，包括子url路径 -->
-            <bean class="kasei.web.mvc.interceptor.MyInterceptor"></bean>
+            <bean class="kasei.springmvc.mvc.interceptor.MyInterceptor"></bean>
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/**" />
-            <bean class="kasei.web.mvc.interceptor.MyInterceptor2"></bean>
+            <bean class="kasei.springmvc.mvc.interceptor.MyInterceptor2"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
 
@@ -84,7 +84,7 @@
 
 
     <!-- 自定义的全局异常处理器，只要实现HandlerExceptionResolver接口就是全局异常处理器 -->
-    <bean class="kasei.web.mvc.globalexceptionhandler.MyExceptionResolver"></bean>
+    <bean class="kasei.springmvc.mvc.globalexceptionhandler.MyExceptionResolver"></bean>
 
 
 </beans>

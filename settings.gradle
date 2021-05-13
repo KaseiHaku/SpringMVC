@@ -1,4 +1,0 @@
-/** todo 官方配置文档地址： https://docs.gradle.org/current/dsl/org.gradle.api.initialization.Settings.html */
-rootProject.name = 'SpringWeb'
-
-

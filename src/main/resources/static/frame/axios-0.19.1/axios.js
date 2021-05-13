@@ -300,10 +300,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * Determine if we're running in a standard browser environment
 	 *
-	 * This allows axios to run in a web worker, and react-native.
+	 * This allows axios to run in a springmvc worker, and react-native.
 	 * Both environments support XMLHttpRequest, but not fully standard globals.
 	 *
-	 * web workers:
+	 * springmvc workers:
 	 *  typeof window -> undefined
 	 *  typeof document -> undefined
 	 *
@@ -1068,7 +1068,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    // Add xsrf header
 	    // This is only done if running in a standard browser environment.
-	    // Specifically not if we're in a web worker, or react-native.
+	    // Specifically not if we're in a springmvc worker, or react-native.
 	    if (utils.isStandardBrowserEnv()) {
 	      var cookies = __webpack_require__(22);
 	
@@ -1445,7 +1445,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      };
 	    })() :
 	
-	  // Non standard browser envs (web workers, react-native) lack needed support.
+	  // Non standard browser envs (springmvc workers, react-native) lack needed support.
 	    (function nonStandardBrowserEnv() {
 	      return function isURLSameOrigin() {
 	        return true;
@@ -1515,7 +1515,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      };
 	    })() :
 	
-	  // Non standard browser env (web workers, react-native) lack needed support.
+	  // Non standard browser env (springmvc workers, react-native) lack needed support.
 	    (function nonStandardBrowserEnv() {
 	      return {
 	        write: function write() {},

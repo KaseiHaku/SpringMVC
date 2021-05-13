@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.2.RELEASE</version>
+    </parent>
+    
+    <groupId>kasei.springmvc</groupId>
+    <artifactId>SpringMVC</artifactId>
+    <version>0.0.1</version>
+    <packaging>war</packaging>
+
+    <!-- 依赖配置 -->
+    <repositories>
+        <repository>
+            <id>central2</id>
+            <name>Central Repository</name>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+        
+        <!-- 阿里云 maven 仓库 -->
+        <repository>
+            <id>aliYunRepository</id>
+            <name>ali yun maven repository</name>
+            <url>https://maven.aliyun.com/repository/central</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </releases>
+        </repository>        
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>alfresco</id>
+            <name>alfresco repo</name>
+            <url>https://artifacts.alfresco.com/nexus/content/repositories/public/</url>
+        </pluginRepository>
+    </pluginRepositories>
+    
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>11.0.2</version>
+                <configuration>
+                    <httpConnector>
+                        <port>8089</port>
+                    </httpConnector>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                    </webApp>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
