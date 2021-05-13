@@ -18,7 +18,7 @@
         <java.version>11</java.version>
         <slf4j.version>2.0.0-alpha1</slf4j.version>
         <log4j2.version>2.14.1</log4j2.version>
-        <spring.version>5.2.2.RELEASE</spring.version>
+        <spring.version>5.2.4.RELEASE</spring.version>
         <junit.version>5.8.0-M1</junit.version>
         <servlet.version>4.0.1</servlet.version>
         <jetty.version>10.0.2</jetty.version><!-- jetty 11, tomcat 10 使用 jakarta, 不兼容 Spring 5 -->
