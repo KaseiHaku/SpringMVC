@@ -24,7 +24,9 @@ import javax.servlet.ServletRegistration;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-/** TODO 该类用于配置所有 MVC 相关的配置 */
+/** 该类用于配置所有 MVC 相关的配置,
+ * 也可以继承 WebMvcConfigurerAdapter 类，该类有默认实现，可以只定义自己感兴趣的配置 
+ * */
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"kasei.web.controller"})
