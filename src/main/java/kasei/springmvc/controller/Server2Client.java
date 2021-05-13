@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** TODO 演示服务器返回响应数据 或 转发到 View */
+/**  演示服务器返回响应数据 或 转发到 View */
 @Controller
 //@ResponseBody // 如果该标签放在这里，那么表示该类中所有的方法都是直接给客户端返回数据的
 @RequestMapping("/Server2Client")//定义该 controller的根路径

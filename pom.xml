@@ -14,14 +14,19 @@
     <version>0.0.1</version>
     <packaging>war</packaging>
 
-    <!-- 依赖配置 -->
+    <properties>
+        <java.version>11</java.version>
+        <slf4j.version>2.0.0-alpha1</slf4j.version>
+        <log4j2.version>2.14.1</log4j2.version>
+        <spring.version>5.2.2.RELEASE</spring.version>
+        <junit.version>5.8.0-M1</junit.version>
+        <servlet.version>4.0.1</servlet.version>
+        <jetty.version>10.0.2</jetty.version><!-- jetty 11, tomcat 10 使用 jakarta, 不兼容 Spring 5 -->
+    </properties>
+    
+    
+    <!--仓库配置-->
     <repositories>
-        <repository>
-            <id>central2</id>
-            <name>Central Repository</name>
-            <url>https://repo1.maven.org/maven2/</url>
-        </repository>
-        
         <!-- 阿里云 maven 仓库 -->
         <repository>
             <id>aliYunRepository</id>
@@ -42,18 +47,61 @@
             <url>https://artifacts.alfresco.com/nexus/content/repositories/public/</url>
         </pluginRepository>
     </pluginRepositories>
-    
+
+    <!-- 当前项目的依赖配置 -->
     <dependencies>
+        <!--Spring 依赖-->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>7.0.1.Final</version>
+        </dependency>
+        
+        <!--Servlet 标准：SpringMVC 5 不支持 jakarta.servlet , 部署时最高只能使用 Tomcat9，Tomcat10 就是 jakarta 了 -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--Log -->
+        <dependency><!-- 把 jcl 实现的日志输出，重定向到 slf4j -->
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency><!-- 以 log4j2 作为 slf4j 的实现 -->
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j18-impl</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        
+        
+
+        <!--Test Interrelated-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     
@@ -62,15 +110,31 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>11.0.2</version>
+                <version>${jetty.version}</version>
                 <configuration>
-                    <httpConnector>
-                        <port>8089</port>
-                    </httpConnector>
+                    <!-- 
+                        EMBED: 跟 Maven 共用一个 JVM
+                        FORK: 独立使用一个 JVM
+                        EXTERNAL: 外部 Jetty，相当于使用本地安装的 Tomcat
+                    -->
+                    <deployMode>FORK</deployMode>
+                    <!--<httpConnector>-->
+                    <!--    <port>8089</port>-->
+                    <!--</httpConnector>-->
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>
+                     <!--jetty jvm 启动参数，坑：不能换行-->
+                    <jvmArgs>-Dorg.eclipse.jetty.LEVEL=DEBUG -Djetty.http.port=8089 -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005</jvmArgs>
                 </configuration>
+                <!--插件自身的依赖-->
+                <dependencies>
+                    <dependency>
+                        <groupId>org.eclipse.jetty</groupId>
+                        <artifactId>jetty-slf4j-impl</artifactId>
+                        <version>${jetty.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>

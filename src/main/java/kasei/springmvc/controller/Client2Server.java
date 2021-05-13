@@ -17,7 +17,7 @@ import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Map;
 
-/** TODO 演示客户端请求数据 和 方法参数 的绑定 */
+/**  演示客户端请求数据 和 方法参数 的绑定 */
 @Controller
 @RequestMapping("/Client2Server")
 public class Client2Server {

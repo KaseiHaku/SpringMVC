@@ -10,7 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 
-/** TODO 演示服务器内部各个 Controller 之间的参数传递及获取 */
+/**  演示服务器内部各个 Controller 之间的参数传递及获取 */
 @Controller
 @RequestMapping("/Server2Server")
 public class Server2Server {

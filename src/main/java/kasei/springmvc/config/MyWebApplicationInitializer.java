@@ -1,13 +1,16 @@
 package kasei.springmvc.config;
 
+
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
+import java.nio.charset.StandardCharsets;
 
-/** TODO 使用 SPI 实现自动装配
+
+/**  使用 SPI 实现自动装配
  * 该类主要用于 Servlet 容器配置，例如 DispatcherServlet
  *
  * DispatcherServlet initialization parameters
@@ -21,7 +24,7 @@ import javax.servlet.ServletRegistration;
 public class MyWebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 
-    /** TODO RootConfigClasses 用于配置 Spring 使用到的 App IOC 容器的配置类
+    /** RootConfigClasses 用于配置 Spring 使用到的 App IOC 容器的配置类
      * 即: ApplicationContext
      * 主要包含 @Service @Repository
      * */
@@ -30,7 +33,7 @@ public class MyWebApplicationInitializer extends AbstractAnnotationConfigDispatc
         return new Class<?>[] { SpringConfig.class };
     }
 
-    /** TODO ServletConfigClasses 用于配置 MVC 使用到的 Web IOC 容器的配置类
+    /** ServletConfigClasses 用于配置 MVC 使用到的 Web IOC 容器的配置类
      * 即: WebApplicationContext     该容器是 Spring IOC 容器的子容器
      * 只包含：@Controller
      * */
@@ -41,32 +44,37 @@ public class MyWebApplicationInitializer extends AbstractAnnotationConfigDispatc
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] { "/mvc/" };  // 这里 url 不能使用例如 "/*", "/mvc/*" 等 * 号结尾的模式，会导致 view 路径解析失败，因为会重新跳转到 MVC 的 DispatcherServlet
+        return new String[] { "/mvc/*" };  // 这里 url 不能使用例如 "/*", "/mvc/*" 等 * 号结尾的模式，会导致 view 路径解析失败，因为会重新跳转到 MVC 的 DispatcherServlet
     }
 
-    /** TODO 配置过滤器 */
+    /**  配置过滤器 */
     @Override
     protected Filter[] getServletFilters() {
-        return new Filter[] {new CharacterEncodingFilter() };
+        return new Filter[] {
+            /* 该过滤器用于设置 request response 的字符编码格式 */
+            new CharacterEncodingFilter(StandardCharsets.UTF_8.name(), true, true) 
+        };
     }
 
 
-    @Override
-    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-        /** TODO 文件上传限制配置 */
-        // Optionally also set maxFileSize, maxRequestSize, fileSizeThreshold
-        registration.setMultipartConfig(
-            new MultipartConfigElement(
-                "/tmp",             // location 上传文件保存路径
-                1024*1024*10,       // maxFileSize 最大允许上传 n 个字节的文件
-                2,              // maxRequestSize 最多一次允许上传 n 个文件
-                1024*100        // fileSizeThreshold 超过 n 个字节的文件，需要生成临时文件，注意临时文件回自动删除
-            )
-        );
-        /** TODO 日志中显示登陆参数 */
-        registration.setInitParameter("enableLoggingRequestDetails", "true");
-    }
+    // @Override
+    // protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+    //     /**  文件上传限制配置 */
+    //     // Optionally also set maxFileSize, maxRequestSize, fileSizeThreshold
+    //     registration.setMultipartConfig(
+    //         new MultipartConfigElement(
+    //             "/tmp",             // location 上传文件保存路径
+    //             1024*1024*10,       // maxFileSize 最大允许上传 n 个字节的文件
+    //             2,              // maxRequestSize 最多一次允许上传 n 个文件
+    //             1024*100        // fileSizeThreshold 超过 n 个字节的文件，需要生成临时文件，注意临时文件回自动删除
+    //         )
+    //     );
+    //     /**  日志中显示登陆参数 */
+    //     registration.setInitParameter("enableLoggingRequestDetails", "true");
+    // }
 
+    
+    
 
 
 }
