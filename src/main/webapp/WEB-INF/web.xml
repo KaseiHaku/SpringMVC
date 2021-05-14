@@ -6,11 +6,37 @@
          version="4.0"
          metadata-complete="false">
     <!--
-    springmvc.xml 方式配置 Spring 和 Spring MVC 已经过时，
-    现在都采用 SPI 方式配置，具体使用参考
-    spring-springmvc-5.0.13.RELEASE.jar!/META-INF/services/javax.servlet.ServletContainerInitializer
-    文件中声明的 SPI 实现类 org.springframework.springmvc.SpringServletContainerInitializer
-    该实现类中会查找 classpath 下所有 WebApplicationInitializer 接口的实现类，
-    并调用每个 WebApplicationInitializer 实现类的 onStartup() 方法完成 Servlet Filter Listener 等类的配置
+        springmvc.xml 方式配置 Spring 和 Spring MVC 已经过时，
+        现在都采用 SPI 方式配置，具体使用参考
+        spring-springmvc-5.0.13.RELEASE.jar!/META-INF/services/javax.servlet.ServletContainerInitializer
+        文件中声明的 SPI 实现类 org.springframework.springmvc.SpringServletContainerInitializer
+        该实现类中会查找 classpath 下所有 WebApplicationInitializer 接口的实现类，
+        并调用每个 WebApplicationInitializer 实现类的 onStartup() 方法完成 Servlet Filter Listener 等类的配置
     -->
+    
+    <!-- 
+        以下过滤器主要针对直接访问静态资源导致的乱码问题， 即：https://localhost:8089/public/readme.txt 
+        https://localhost:8089/mvc/public/readme.txt 则不会乱码，因为 DispatcherServlet 已经配置过该过滤器了 
+     -->
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    
+    <error-page>
+        <location>/public/html/error.html</location>
+    </error-page>
 </web-app>

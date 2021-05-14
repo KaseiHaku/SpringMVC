@@ -1,6 +1,6 @@
 package kasei.springmvc.controller;
 
-import kasei.springmvc.config.globalexceptionhandler.CustomizeException;
+import kasei.springmvc.config.exceptionhandler.CustomizeException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

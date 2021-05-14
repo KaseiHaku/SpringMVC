@@ -1,0 +1,34 @@
+import kasei.springmvc.service.LogService;
+import kasei.springmvc.service.impl.LogServiceImpl;
+
+/** 
+ * 当前 module 的名称 
+ * maven-compiler-plugin 的版本必须要在 3.8.1 以上。
+ * */
+module kasei.springmvc { 
+    /**
+     * requires: 表示当前模块依赖的其他模块 
+     * transitive: 表示传递依赖
+     * static: 编译时需要，但是运行时不需要的依赖
+     * */
+    requires transitive spring.web;
+    requires spring.beans;
+    requires static lombok;
+    
+    /**
+     * exports: 表示当前包下可以被其他 module 引用的包 
+     * exports to: 将包暴露给指定的某个模块或某些模块
+     * */
+    exports kasei.springmvc.pojo; 
+    exports kasei.springmvc.config to kasei.springcloud;
+    
+    /** provides: 表示对外提供一个 LogService 接口，实现类为 LogServiceImpl */
+    provides LogService with LogServiceImpl;
+    
+    /** opens: 表示某些包，编译时不可用，但是运行时可用 */
+    opens kasei.springmvc.config;
+    
+    /** uses: 暴露需要被实现的接口 */
+    uses LogService;
+    
+}

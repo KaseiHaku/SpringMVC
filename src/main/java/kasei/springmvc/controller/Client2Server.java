@@ -1,6 +1,6 @@
 package kasei.springmvc.controller;
 
-import kasei.springmvc.util.*;
+import kasei.springmvc.pojo.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
