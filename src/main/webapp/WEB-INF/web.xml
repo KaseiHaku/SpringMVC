@@ -35,8 +35,27 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
     
+    <!--
+        错误页面配置:
+        1. DispatcherServlet 直接捕获处理异常，并返回指定 View
+        2. Servlet Container 根据 <error-page> 来返回指定 View
+        <exception-type> 和 <error-code> 不能同时存在
+    -->
+    <error-page>
+        <exception-type>kasei.springmvc.config.exceptionhandler.BizException</exception-type>
+        <location>/mvc/Error/errorView500</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/jsp/error404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>405</error-code>
+        <location>/WEB-INF/jsp/error405.jsp</location>
+    </error-page>
     
     <error-page>
+        <!-- 默认错误页面，location 必须 / 打头，/ 对应 SpringMVC.war/ -->
         <location>/public/html/error.html</location>
     </error-page>
 </web-app>

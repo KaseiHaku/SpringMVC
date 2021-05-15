@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error Demo</title>
+    <!--<base href="/projectDeployPath"> 用于规定当前页面 url 请求的前缀路径-->
+    <base href="">
+</head>
+<body>
+    <h2>以下是 Servlet Container 来控制返回的错误视图</h2>
+    <a href="/notExist">ServletError: 404 view</a>
+    <a href="">ServletError: 405 view</a>
+    <a href="">ServletError: default error view</a>
+
+    <h2>以下是 SpringMVC 来控制返回的错误视图</h2>
+    <a href="/mvc/Error/error404">Spring MVC Error: 404 view</a>
+    <a href="/mvc/Error/error405">Spring MVC Error: 405 view</a>
+    <a href="/mvc/Error/error500">Spring MVC Error: 500 view</a>
+</body>
+</html>

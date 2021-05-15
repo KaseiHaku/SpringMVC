@@ -1,5 +1,6 @@
 package kasei.springmvc.config;
 
+import kasei.springmvc.config.exceptionhandler.MyExceptionResolver;
 import kasei.springmvc.config.interceptor.MyInterceptor;
 import kasei.springmvc.config.interceptor.MyInterceptor2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,9 @@ public class MvcConfig implements WebMvcConfigurer {
 
     
 
-    /** 校验配置 */
+    /** 校验配置
+     * 必须同时配置 {@link MethodValidationPostProcessor} 才能对 Controller 中的 method 进行校验
+     * */
     @Override
     public Validator getValidator() {
         return null;
@@ -146,7 +149,7 @@ public class MvcConfig implements WebMvcConfigurer {
      * */
     @Override
     public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
-        
+        // resolvers.add(new MyExceptionResolver());
     }
     
     // @Override
