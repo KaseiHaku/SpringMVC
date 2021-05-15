@@ -1,6 +1,7 @@
 package kasei.springmvc.config;
 
 import kasei.springmvc.config.exceptionhandler.MyExceptionResolver;
+import kasei.springmvc.config.exceptionhandler.MyResponseEntityExceptionHandler;
 import kasei.springmvc.config.interceptor.MyInterceptor;
 import kasei.springmvc.config.interceptor.MyInterceptor2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -149,7 +150,11 @@ public class MvcConfig implements WebMvcConfigurer {
      * */
     @Override
     public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
-        // resolvers.add(new MyExceptionResolver());
+        resolvers.add(new MyExceptionResolver());
+    }
+    @Bean
+    public MyResponseEntityExceptionHandler myResponseEntityExceptionHandler(){
+        return new MyResponseEntityExceptionHandler();
     }
     
     // @Override

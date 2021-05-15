@@ -53,7 +53,10 @@
         <error-code>405</error-code>
         <location>/WEB-INF/jsp/error405.jsp</location>
     </error-page>
-    
+    <error-page>
+        <error-code>501</error-code>
+        <location>/WEB-INF/jsp/error501.jsp</location>
+    </error-page>
     <error-page>
         <!-- 默认错误页面，location 必须 / 打头，/ 对应 SpringMVC.war/ -->
         <location>/public/html/error.html</location>

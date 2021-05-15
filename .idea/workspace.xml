@@ -23,22 +23,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bac05fa0-68f6-4dbf-814d-5a3991989e50" name="Default Changelist" comment="f">
-      <change afterPath="$PROJECT_DIR$/src/main/java/kasei/springmvc/config/exceptionhandler/Error501Exception.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error404.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error405.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/public/html/errorDemo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/springmvc_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/springmvc_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_6.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kasei/springmvc/config/exceptionhandler/MyExceptionResolverException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kasei/springmvc/config/exceptionhandler/MyResponseEntityExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error501.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringMVC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringMVC.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kasei/springmvc/config/MvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kasei/springmvc/config/MvcConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kasei/springmvc/config/exceptionhandler/CustomizeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kasei/springmvc/config/exceptionhandler/BizException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kasei/springmvc/config/exceptionhandler/MyExceptionResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kasei/springmvc/config/exceptionhandler/MyExceptionResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kasei/springmvc/controller/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kasei/springmvc/controller/ErrorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kasei/springmvc/controller/ExceptionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kasei/springmvc/controller/ErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kasei/springmvc/controller/ErrorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/customError.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errorMyExceptionResolver.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/public/html/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/public/html/error.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,25 +84,25 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.41724136" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Desktop\KaseiWorkTable\GitLocalRepository\SpringMVC\src\main\webapp\WEB-INF\jsp" />
-      <recent name="C:\Users\Administrator\Desktop\KaseiWorkTable\GitLocalRepository\SpringMVC\src\main\webapp\public" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="kasei.springmvc.config.exceptionhandler" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\Desktop\KaseiWorkTable\GitLocalRepository\SpringMVC\src\main\webapp\public" />
       <recent name="C:\Users\Administrator\Desktop\KaseiWorkTable\GitLocalRepository\SpringMVC\src\main\webapp\static\html" />
       <recent name="C:\Users\Administrator\Desktop\KaseiWorkTable\GitLocalRepository\SpringMVC\src\main\webapp" />
       <recent name="C:\Users\Administrator\Desktop\KaseiWorkTable\GitLocalRepository\SpringMVC\src\main\webapp\WEB-INF" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="kasei.springmvc.config.exceptionhandler" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\KaseiWorkTable\GitLocalRepository\SpringMVC\src\main\webapp\WEB-INF\jsp" />
+      <recent name="C:\Users\Administrator\Desktop\KaseiWorkTable\GitLocalRepository\SpringMVC\src\main\webapp\public" />
     </key>
   </component>
   <component name="RunManager">
@@ -125,15 +118,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -191,7 +182,8 @@
       <workItem from="1620885116074" duration="4190000" />
       <workItem from="1620892265019" duration="9312000" />
       <workItem from="1620903093990" duration="30130000" />
-      <workItem from="1620968013952" duration="29681000" />
+      <workItem from="1620968013952" duration="36298000" />
+      <workItem from="1621093459100" duration="4362000" />
     </task>
     <servers />
   </component>
@@ -215,10 +207,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="254" y="85" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1620894950925" />
-    <state x="605" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1621057072154">
+    <state x="605" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1621089555226">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="605" y="136" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1621057072154" />
+    <state x="605" y="136" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1621089555226" />
     <state x="930" y="210" key="#xdebugger.evaluate" timestamp="1621062339921">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -227,66 +219,66 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="92" y="92" width="1416" height="676" key="DiffContextDialog/0.0.1600.860@0.0.1600.860" timestamp="1620925204507" />
-    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1620981642357">
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1621092989478">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1620981642357" />
-    <state width="1557" height="285" key="GridCell.Tab.0.bottom" timestamp="1621063193415">
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1621092989478" />
+    <state width="1557" height="285" key="GridCell.Tab.0.bottom" timestamp="1621096958410">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="285" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1621063193415" />
-    <state width="1557" height="285" key="GridCell.Tab.0.center" timestamp="1621063193415">
+    <state width="1557" height="285" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1621096958410" />
+    <state width="1557" height="285" key="GridCell.Tab.0.center" timestamp="1621096958410">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="285" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1621063193415" />
-    <state width="1557" height="285" key="GridCell.Tab.0.left" timestamp="1621063193414">
+    <state width="1557" height="285" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1621096958410" />
+    <state width="1557" height="285" key="GridCell.Tab.0.left" timestamp="1621096958410">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="285" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1621063193414" />
-    <state width="1557" height="285" key="GridCell.Tab.0.right" timestamp="1621063193415">
+    <state width="1557" height="285" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1621096958410" />
+    <state width="1557" height="285" key="GridCell.Tab.0.right" timestamp="1621096958410">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="285" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1621063193415" />
-    <state width="1557" height="242" key="GridCell.Tab.1.bottom" timestamp="1621063129813">
+    <state width="1557" height="285" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1621096958410" />
+    <state width="1557" height="435" key="GridCell.Tab.1.bottom" timestamp="1621094868133">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="242" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1621063129813" />
-    <state width="1557" height="242" key="GridCell.Tab.1.center" timestamp="1621063129812">
+    <state width="1557" height="435" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1621094868133" />
+    <state width="1557" height="435" key="GridCell.Tab.1.center" timestamp="1621094868133">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="242" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1621063129812" />
-    <state width="1557" height="242" key="GridCell.Tab.1.left" timestamp="1621063129812">
+    <state width="1557" height="435" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1621094868133" />
+    <state width="1557" height="435" key="GridCell.Tab.1.left" timestamp="1621094868132">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="242" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1621063129812" />
-    <state width="1557" height="242" key="GridCell.Tab.1.right" timestamp="1621063129813">
+    <state width="1557" height="435" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1621094868132" />
+    <state width="1557" height="435" key="GridCell.Tab.1.right" timestamp="1621094868133">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="242" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1621063129813" />
-    <state x="301" y="9" key="SettingsEditor" timestamp="1620920275134">
+    <state width="1557" height="435" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1621094868133" />
+    <state x="301" y="9" key="SettingsEditor" timestamp="1621093490856">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="301" y="9" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1620920275134" />
-    <state x="521" y="171" width="570" height="524" key="StructurePopup" timestamp="1621062014366">
+    <state x="301" y="9" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1621093490856" />
+    <state x="521" y="171" width="570" height="524" key="StructurePopup" timestamp="1621095923811">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="521" y="171" width="570" height="524" key="StructurePopup/0.0.1600.860@0.0.1600.860" timestamp="1621062014366" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1620970993577">
+    <state x="521" y="171" width="570" height="524" key="StructurePopup/0.0.1600.860@0.0.1600.860" timestamp="1621095923811" />
+    <state width="498" height="517" key="SwitcherDM" timestamp="1621097691384">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1620970993577" />
+    <state width="498" height="517" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1621097691384" />
     <state x="647" y="345" key="VCS.ChangelistChooser" timestamp="1620926797572">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="647" y="345" key="VCS.ChangelistChooser/0.0.1600.860@0.0.1600.860" timestamp="1620926797572" />
-    <state x="528" y="170" width="585" height="534" key="find.popup" timestamp="1621059035026">
+    <state x="528" y="170" width="585" height="534" key="find.popup" timestamp="1621095376555">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="528" y="170" width="585" height="534" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1621059035026" />
-    <state x="355" y="142" width="941" height="678" key="search.everywhere.popup" timestamp="1621057402876">
+    <state x="528" y="170" width="585" height="534" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1621095376555" />
+    <state x="355" y="142" width="941" height="678" key="search.everywhere.popup" timestamp="1621095275406">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="355" y="142" width="941" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1621057402876" />
+    <state x="355" y="142" width="941" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1621095275406" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -303,7 +295,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/kasei/springmvc/controller/ErrorController.java</url>
-          <line>54</line>
+          <line>74</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -315,16 +307,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/kasei/springmvc/controller/ApplicationContextController.java</url>
           <line>40</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$USER_HOME$/.m2/repository/org/springframework/spring-webmvc/5.3.6/spring-webmvc-5.3.6-sources.jar!/org/springframework/web/servlet/handler/AbstractHandlerExceptionResolver.java</url>
-          <line>138</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$USER_HOME$/.m2/repository/org/springframework/spring-webmvc/5.3.6/spring-webmvc-5.3.6-sources.jar!/org/springframework/web/servlet/handler/AbstractHandlerMethodExceptionResolver.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

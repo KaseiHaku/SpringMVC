@@ -7,7 +7,7 @@
 </head>
 <body>
 
-	<h1>MD 报了个自定义异常, ${requestScope.message}</h1>
+<h1>Servlet 501 Error View</h1>
 	
 </body>
 </html>
