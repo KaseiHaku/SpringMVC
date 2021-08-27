@@ -157,15 +157,29 @@ public class MvcConfig implements WebMvcConfigurer {
         return new MyResponseEntityExceptionHandler();
     }
     
-    // @Override
-    // public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-    //     Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder()
-    //         .indentOutput(true)
-    //         .dateFormat(new SimpleDateFormat("yyyy-MM-dd HH：mm:ss"))
-    //         .modulesToInstall(new ParameterNamesModule());
-    //     converters.add(new MappingJackson2HttpMessageConverter(builder.build()));
-    //
-    // }
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+        /*
+            该转换器必须配置在 MappingJackson2HttpMessageConverter 转换器之前，
+            如果 MappingJackson2HttpMessageConverter 在该转换器之前，
+            那么当返回类型为 String 但是返回 mediaType 为 application/json 时，
+            MappingJackson2HttpMessageConverter 会将 String 类型仅仅当做 String 而不是 JSON，
+            转换时会将 JSON 用双引号括起来，例如：
+            str="{\"key\": 23}" 用 MappingJackson2HttpMessageConverter 会被转换为
+            result="\"{\"key\": 23}\""  导致 json 解析出错
+        */
+        converters.add(new StringHttpMessageConverter());
+        
+        /* 配置 @ResponseBody (application/json)类型的转换器 */
+        ObjectMapper objectMapper = new Jackson2ObjectMapperBuilder()
+            .indentOutput(true)
+            .dateFormat(new SimpleDateFormat("yyyy-MM-dd HH：mm:ss"))
+            .modulesToInstall(new ParameterNamesModule()).build();
+        MappingJackson2HttpMessageConverter jacksonConverter = new MappingJackson2HttpMessageConverter(objectMapper);
+        jacksonConverter.setSupportedMediaTypes(Arrays.asList(MediaType.APPLICATION_JSON_UTF8));
+        converters.add(jacksonConverter);
+    
+    }
 
 
     /**  全局 CORS 配置 */
