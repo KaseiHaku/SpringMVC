@@ -5,7 +5,18 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 		    http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-
+    
+    <!------------------------------ Spring IOC 容器本身的配置 ------------------------------->
+    <!-- 
+        相当于配置了以下所有类，
+            ConfigurationClassPostProcessor, AutowiredAnnotationBeanPostProcessor, CommonAnnotationBeanPostProcessor,
+            PersistenceAnnotationBeanPostProcessor, EventListenerMethodProcessor
+        这些类配置后，会使 IOC 容器支持 @Configuration 注解来配置 
+    -->
+    <context:annotation-config/>
+    
+   
+    
     <!-- spring mvc 配置扫包：多个包用 , 号分隔，包含子包用 base.* -->
     <context:component-scan base-package="kasei.springmvc.*" use-default-filters="false">
         <!-- 只包含 Controller 注解注释的类，需要设置 context:component-scan 属性 use-default-filters="false" -->
@@ -21,8 +32,7 @@
     </context:component-scan>
 
 
-    <!-- 开启 mvc 注解开发模式: conversion-service 属性：用于关联转换器 -->
-    <mvc:annotation-driven conversion-service="conversionService"/>
+   
 
     <!-- 配置自定义转换器 -->
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
@@ -53,6 +63,31 @@
     </bean>
 
 
+    
+
+
+    <!-- 配置 html 视图解析器 :不需要配，直接在controller 里面转发或者重定向即可 -->
+    <!-- 配置 jsp 视图解析器，注意  InternalResourceViewResolver 视图解析器优先级必须最低，否则其他解析器会被拦截 -->
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"/>
+        <property name="prefix" value="/WEB-INF/view/jsp/"></property>
+        <!-- 严禁配后缀：<property name="suffix" value=".jsp"></property> -->
+        <property name="contentType" value="text/html;charset=UTF-8"/>
+        <property name="order" value="1"></property><!-- 设置优先级为最低 -->
+    </bean>
+
+
+    <!-- 自定义的全局异常处理器，只要实现HandlerExceptionResolver接口就是全局异常处理器 -->
+    <bean class="kasei.springmvc.mvc.globalexceptionhandler.MyExceptionResolver"></bean>
+
+    
+    <!------------------------------ Spring MVC 相关的配置 ------------------------------->
+    <!-- 
+        开启 mvc 注解开发模式: conversion-service 属性：用于关联转换器，
+        相当于配置了 @EnableWebMvc
+    -->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+    
     <!--配置全局拦截器: -->
     <mvc:interceptors>
         <!--多个拦截器,顺序执行 -->
@@ -70,21 +105,5 @@
     <!-- 配置静态资源位置以及 url Mapping路径 -->
     <!--<mvc:resources location="/WEB-INF/view/html/" mapping="/html/**"/>-->
     <!--<mvc:resources location="/WEB-INF/resource/" mapping="/resource/**"/>-->
-
-
-    <!-- 配置 html 视图解析器 :不需要配，直接在controller 里面转发或者重定向即可 -->
-    <!-- 配置 jsp 视图解析器，注意  InternalResourceViewResolver 视图解析器优先级必须最低，否则其他解析器会被拦截 -->
-    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"/>
-        <property name="prefix" value="/WEB-INF/view/jsp/"></property>
-        <!-- 严禁配后缀：<property name="suffix" value=".jsp"></property> -->
-        <property name="contentType" value="text/html;charset=UTF-8"/>
-        <property name="order" value="1"></property><!-- 设置优先级为最低 -->
-    </bean>
-
-
-    <!-- 自定义的全局异常处理器，只要实现HandlerExceptionResolver接口就是全局异常处理器 -->
-    <bean class="kasei.springmvc.mvc.globalexceptionhandler.MyExceptionResolver"></bean>
-
 
 </beans>
