@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 		    http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     
-    <!------------------------------ Spring IOC 容器本身的配置 ------------------------------->
+    <!--############################ Spring IOC 容器本身的配置 #############################-->
     <!-- 
         相当于配置了以下所有类，
             ConfigurationClassPostProcessor, AutowiredAnnotationBeanPostProcessor, CommonAnnotationBeanPostProcessor,
@@ -81,7 +81,7 @@
     <bean class="kasei.springmvc.mvc.globalexceptionhandler.MyExceptionResolver"></bean>
 
     
-    <!------------------------------ Spring MVC 相关的配置 ------------------------------->
+    <!--############################ Spring MVC 相关的配置 #############################-->
     <!-- 
         开启 mvc 注解开发模式: conversion-service 属性：用于关联转换器，
         相当于配置了 @EnableWebMvc
